@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { WordService } from '../../services/word.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-trainer',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './trainer.component.html',
   styleUrl: './trainer.component.css'
 })
@@ -15,11 +18,17 @@ export class TrainerComponent {
   buttonText = 'Submit';
   showNext = false;
   
+  @ViewChild('resetBtn', { static: false }) resetButton!: ElementRef;
+
   constructor(public wordService: WordService) {}
 
   ngOnInit(): void {
     this.wordService.getNewWord();
-    ///console.log(this.wordService.currentWord);
+  }
+
+  ngAfterViewInit(): void {
+    // Initialize Bootstrap Tooltip
+    new bootstrap.Tooltip(this.resetButton.nativeElement);
   }
 
   onSubmit(): void {

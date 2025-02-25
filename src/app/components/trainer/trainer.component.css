@@ -35,3 +35,9 @@ h1 {
       margin-block: 1.5rem;
     }
   }
+
+  .text-danger {
+    color: red;
+    font-weight: bold;
+  }
+  

@@ -3,17 +3,18 @@
     
     <!-- Interactive Section -->
     <div class="card p-3 mb-3">
-      <p><strong>Definition:</strong> {{ wordService.currentWord.meaning }}</p>
+      <p><strong>What is the definition for:</strong> {{ wordService.currentWord.meaning }}</p>
     <div class="form-floating mb-3">
         <div class="mb-3">
             <input type="text" class="form-control touched" [(ngModel)]="userInput" (keydown.enter)="onSubmit()" placeholder="Enter the word">
           </div>
           <button class="btn btn-primary me-2" (click)="onSubmit()">{{ buttonText }}</button>
-          <button class="btn btn-danger" (click)="onReset()">Reset</button>
+          <button class="btn btn-warning" (click)="onReset()" title="Click to reset your progress">Reset</button>
     </div>
-      
-      <div class="mt-3" [innerHTML]="feedback"></div>
+      <div class="mt-3" [ngClass]="{ 'text-danger': showNext }" [innerHTML]="feedback"></div>
+
       <p class="mt-3">Success Rate: {{ wordService.getSuccessRate() }}% ({{ wordService.correctAnswers }} / {{ wordService.totalAnswers }})</p>
+      <p class="mt-3">Total Answers: {{ wordService.totalAnswers }}</p>
     </div>
     
     <div class="divider" role="separator" aria-label="Divider"></div>
