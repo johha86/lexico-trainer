@@ -4,24 +4,39 @@
     <!-- Interactive Section -->
     <div class="card p-3 mb-3">
       <p><strong>Definition:</strong> {{ wordService.currentWord.meaning }}</p>
-      <div class="mb-3">
-        <input type="text" class="form-control" [(ngModel)]="userInput" placeholder="Enter the word">
-      </div>
-      <button class="btn btn-primary me-2" (click)="onSubmit()">{{ buttonText }}</button>
-      <button class="btn btn-danger" (click)="onReset()">Reset</button>
+    <div class="form-floating mb-3">
+        <div class="mb-3">
+            <input type="text" class="form-control touched" [(ngModel)]="userInput" (keydown.enter)="onSubmit()" placeholder="Enter the word">
+          </div>
+          <button class="btn btn-primary me-2" (click)="onSubmit()">{{ buttonText }}</button>
+          <button class="btn btn-danger" (click)="onReset()">Reset</button>
+    </div>
+      
       <div class="mt-3" [innerHTML]="feedback"></div>
       <p class="mt-3">Success Rate: {{ wordService.getSuccessRate() }}% ({{ wordService.correctAnswers }} / {{ wordService.totalAnswers }})</p>
     </div>
     
+    <div class="divider" role="separator" aria-label="Divider"></div>
     <!-- Section 2: Credit -->
+
+    <h2 class="mb-3">Credits</h2>
     <div class="mb-3">
-      <p>This content is brought to you by <a href="https://hzadeducation.com/" target="_blank">Hzad Education</a>.</p>
+        
+      <p>
+        This vocabulary content, including the 200 words and their meanings, has been sourced from Hzad Education. 
+        For more valuable language learning resources, visit their website at <a href="https://hzadeducation.com/" target="_blank">Hzad Education</a>. 
+        If you're looking for a more extensive list of essential vocabulary, 
+        check out their blog post: <a href="https://hzadeducation.com/2024/02/03/400-best-pte-core-words-phrases-for-a-clb-9-score-88/" target="_blank">400 Best PTE Core Words & Phrases for a CLB 9 Score</a>.
+    </p>
     </div>
     
     <!-- Section 3: About Me -->
+    <h2 class="mb-3">Why I made this?</h2>
     <div class="mb-3 d-flex align-items-center">
+        
       <img src="roomie.jpg" alt="My Roomies Picture" class="img-thumbnail me-3" style="max-width: 100px;">
-      <p>Hi, I'm Johann. Visit my personal website at <a href="https://iamjohann.com" target="_blank">iamjohann.com</a> for more info.</p>
+      <p>Hi, I'm Johann. I only live with my flurry roomie(picture) and maybe like me, you need someone to practice your vocabulary list.
+        I made this simple tool for those who might need it to practice alone. If you have any comment you can visit my <a href="https://iamjohann.com/contact" target="_blank">personal website</a> and contact me there...😊thanks!!</p>
     </div>
   </div>
   
