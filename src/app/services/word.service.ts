@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 export interface Word {
   word: string;
@@ -17,26 +15,8 @@ export class WordService {
   public totalAnswers = 0;
   public currentWord!: Word;
 
-  constructor(private http: HttpClient) {
-    //this.loadWords();
+  constructor() {
     this.getNewWord();
-  }
-
-  // Load words from the assets/words.json file
-   loadWords(): void {
-    
-    
-    // this.http.get<Word[]>('assets/words.json').subscribe(
-    //   (data) => {
-    //     console.log('loading word');
-    //     console.log(data);
-    //     this.words = data;
-    //     this.getNewWord();
-    //   },
-    //   (error) => {
-    //     console.error('Error loading words:', error);
-    //   }
-    // );
   }
 
   getNewWord(): void {
