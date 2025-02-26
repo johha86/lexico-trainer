@@ -60,12 +60,9 @@ For more information on using the Angular CLI, including detailed command refere
 
 ## Deploy to GitHub Pages
 Install the Angular CLI GitHub Pages Package (if not already installed):
+`ng add angular-cli-ghpages`
 
-ng add angular-cli-ghpages
-Build the Application for Production:
+Deploy into gh-pages. It project will be automatically built in production mode.
+`ng deploy --base-href=/lexico-trainer/`
 
-ng build --prod --base-href "https://johha86.github.io/lexico-trainer/"
-Deploy the Application:
-
-npx angular-cli-ghpages --dir=dist/lexico-trainer
 Verify: – Visit https://johha86.github.io/lexico-trainer/ to see your live app.
